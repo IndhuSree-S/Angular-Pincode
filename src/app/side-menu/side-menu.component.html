@@ -1,0 +1,24 @@
+<mat-sidenav-container class="mat-sidenav">
+    <mat-sidenav mode="side" [opened]="true" >
+        <mat-toolbar style="background: rgb(84, 84, 235)">
+            <b>Angular </b>
+        </mat-toolbar>
+        <mat-list>
+            <mat-list-item>User Management   <button style="border: none; background: rgba(217, 212, 212, 0.751);" (click)="page(1)">></button> </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Demo 2</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Demo 3</mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+        
+        
+    </mat-sidenav>
+    <mat-sidenav-content style="text-align: center;">
+        <mat-toolbar>
+            <label>Training Session</label>
+        </mat-toolbar>
+        <div *ngIf="moveTo==0">Let's Go</div>
+        <app-user-list *ngIf="moveTo==1"></app-user-list>
+    </mat-sidenav-content>
+</mat-sidenav-container>

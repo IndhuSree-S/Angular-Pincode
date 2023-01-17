@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
+import {FormBuilder} from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'PincodeApp-Angular';
+  showFiller = false;
+
+  constructor(private _formBuilder: FormBuilder) {}
+
 }

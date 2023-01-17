@@ -1,0 +1,54 @@
+<div [hidden]="showForm">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title style="text-align: center;"><b>User Details</b></mat-card-title>
+            <mat-card-subtitle *ngIf="userData.mode" style="text-align: center;">--{{userData.mode}}--</mat-card-subtitle> 
+        </mat-card-header>
+        <mat-card-content>
+            <form  #submitform = "ngForm" (ngSubmit)="register(submitform)">
+                
+                <label>User Name : </label>
+                <input type="string" [(ngModel)]="userData.name" #usernameCtrl="ngModel" name="username" required>
+                <div *ngIf="!usernameCtrl.valid && usernameCtrl.touched">
+                  <p color="danger">User Name is required</p>
+                </div>
+                <br><br>
+                <label>Email Id : </label>
+                <input type="any" [(ngModel)]="userData.mail" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #emailidCtrl="ngModel" name="emailid" required>
+                <div *ngIf="!emailidCtrl.valid && emailidCtrl.touched">
+                    <p color="danger">Email Id is required</p>
+                </div>
+                <!--<div *ngIf="emailidCtrl.errors && submitform.submitted && !emailidCtrl.valid" [ngClass] = "'error'">
+                  <div *ngIf="!emailidCtrl.valid && emailidCtrl.touched">
+                    <p color="danger">Email Id is required</p>
+                  </div>
+                </div>-->
+                <br><br>
+                <label>Address : </label>
+                <input type="string" [(ngModel)]="userData.address" #addressCtrl="ngModel" name="address" required>
+                <div *ngIf="!addressCtrl.valid && addressCtrl.touched">
+                  <p color="danger">Address is required</p>
+                </div>
+                <br><br>
+                <label>Password : </label>
+                <input type="password" [(ngModel)]="userData.password" #passwordCtrl="ngModel" name="password" required>
+                <div *ngIf="!passwordCtrl.valid && passwordCtrl.touched">
+                  <p color="danger">Password is required</p>
+                </div>
+                <br><br>
+                <label>Retype Password : </label>
+                <input type="password" [(ngModel)]="userData.repassword" #repasswordCtrl="ngModel" name="repassword" required>
+                <div *ngIf="!repasswordCtrl.valid && repasswordCtrl.touched">
+                  <p color="danger">Password is required</p>
+                </div>
+                <br><br>
+                <mat-card-actions>
+                    <button class="submit" type="submit" [disabled]="!submitform.form.valid">
+                        Submit
+                    </button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    
+</div>
