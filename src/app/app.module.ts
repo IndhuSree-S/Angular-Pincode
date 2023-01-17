@@ -18,6 +18,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-list/user-form/user-form.component';
 import {MatCardModule} from '@angular/material/card';
 import { FormGroup, FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -35,6 +36,7 @@ import { FormGroup, FormsModule } from '@angular/forms';
     FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,

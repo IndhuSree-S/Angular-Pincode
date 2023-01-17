@@ -6,7 +6,6 @@
         </mat-card-header>
         <mat-card-content>
             <form  #submitform = "ngForm" (ngSubmit)="register(submitform)">
-                
                 <label>User Name : </label>
                 <input type="string" [(ngModel)]="userData.name" #usernameCtrl="ngModel" name="username" required>
                 <div *ngIf="!usernameCtrl.valid && usernameCtrl.touched">

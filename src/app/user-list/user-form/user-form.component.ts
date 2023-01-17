@@ -14,15 +14,16 @@ export class UserFormComponent {
 
   constructor(
     public service: MyServiceService
-  ){
-
-  }
+  ){}
 
   register(event: any){
     console.log(this.userData)
     //this.userData = event.target.value
     this.service.userCard=false
     this.service.showUserForm=true
+    if(this.userData.mode=='New'){
+      this.service.userArray.push(this.userData)
+    }    
     this.sendMessage.emit(this.userData)
   }
 

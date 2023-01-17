@@ -9,8 +9,8 @@ import { MyServiceService } from '../my-service.service';
 export class UserListComponent {
   //userArray: any=[];
   //userCard: any = false
-  user={id: 1,name: 'Indhu', address: 'Perundurai', password: 'indhu@123', repassword: 'indhu@123', mail:'indhusrees16@gmail.com', mode:''}
-  //user={id: 0,name: '', address: '', password: '', repassword: '', mail:'', mode:'Edit'}
+  //user={id: 1,name: 'Indhu', address: 'Perundurai', password: 'indhu@123', repassword: 'indhu@123', mail:'indhusrees16@gmail.com', mode:''}
+  user={id: 0,name: '', address: '', password: '', repassword: '', mail:'', mode:'Edit'}
   userNo= this.user.id
   constructor(
     public service: MyServiceService
@@ -19,43 +19,48 @@ export class UserListComponent {
     //this.userArray.push(user1)
   } 
 
-  edit(mode:any){
+  edit(mode:any, num: any){
     this.user.mode=mode
     this.service.userCard=true
     if(mode=='New'){
-      this.user.id = this.userNo+1
+      this.user.id = (this.service.userArray.length)+1
       this.user.address=''
       this.user.mail=''
       this.user.name=''
       this.user.password=''
       this.user.repassword=''
     }
-  }
-
-  message(event: any){
-    if(this.user.id == event.id){
-      this.user = event
+    else{
+      var index = num-1
+      this.user.address=this.service.userArray[index].address
+      this.user.mail=this.service.userArray[index].mail
+      this.user.name=this.service.userArray[index].name
+      this.user.password=this.service.userArray[index].password
+      this.user.repassword=this.service.userArray[index].repassword
     }
   }
 
   /*message(event: any){
-    console.log('Enter parent comp!..')
-    if(event.mode == 'New'){
-      this.userArray.push(event)
+    if(this.user.id == event.id){
+      this.user = event
     }
-    else{
-      var i
-      for(i=0; i< this.userArray.length; i++){
-        if(this.userArray[i].id == event.id){
-          this.userArray[i].name = event.name
-          this.userArray[i].address = event.address
-          this.userArray[i].mail = event.mail
-          this.userArray[i].password = event.password
-          this.userArray[i].repassword = event.repassword
-        }
-      }
-    }
-    console.log(this.userArray)
   }*/
+
+  message(event: any){
+    //console.log('Enter parent comp!..')
+    //if(event.mode == 'New'){
+    //  this.service.userArray.push(event)
+    //}
+    if(event.mode == 'Edit'){
+      var i = (event.id) - 1
+      this.service.userArray[i].id == event.id
+      this.service.userArray[i].name = event.name
+      this.service.userArray[i].address = event.address
+      this.service.userArray[i].mail = event.mail
+      this.service.userArray[i].password = event.password
+      this.service.userArray[i].repassword = event.repassword      
+    }
+    console.log(this.service.userArray)
+  }
 
 }

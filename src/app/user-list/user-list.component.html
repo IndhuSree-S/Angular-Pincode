@@ -1,9 +1,9 @@
 <div [hidden]="service.userCard">
     <p>user-list works!</p>
     <mat-card >
-        <!--<div *ngIf="userArray.length == 0">No records found</div>
-        <div *ngIf="userArray.length != 0">-->
-        <div>
+        <div *ngIf="service.userArray.length == 0">No records found</div>
+        <div *ngIf="service.userArray.length != 0">
+        <!--<div>
             <mat-card >
                 <mat-card-header>
                     <mat-card-title style="text-align: left;">{{user.name}}</mat-card-title>
@@ -13,24 +13,24 @@
                     <button style="background: rgb(164, 38, 38);" (click)="edit('Edit')" mat-button>EDIT</button>
                 </mat-card-actions>
             </mat-card>
-            <br>
+            <br>-->
 
-            <!--<mat-card *ngFor="let person of userArray">
+            <mat-card *ngFor="let person of service.userArray">
                 <mat-card-header>
                     <mat-card-title style="text-align: left;">{{person.name}}</mat-card-title>
                     <mat-card-subtitle>{{person.address}} || {{person.mail}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-actions>
-                    <button style="background: rgb(164, 38, 38);" (click)="edit('Edit')" mat-button>EDIT</button>
+                    <button style="background: rgb(164, 38, 38);" (click)="edit('Edit',person.id)" mat-button>EDIT</button>
                 </mat-card-actions>
             </mat-card>
-            <br>-->
+            <br>
 
         </div>
         
     </mat-card>
     <div class="example-button-container">
-        <button (click)="edit('New')" >
+        <button (click)="edit('New',null)" >
             <mat-icon >Add</mat-icon>
         </button>
     </div>

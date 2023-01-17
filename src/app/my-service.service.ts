@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class MyServiceService {
   showUserForm = true
   userCard = false
+  userArray: any=[];
 
   constructor() { }
 }
